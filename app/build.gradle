@@ -1,0 +1,46 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'com.example.bug'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // App depends on the API
+    implementation project(":api")
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Spring/Axon
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    implementation 'org.springframework.boot:spring-boot-starter-json'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'javax.persistence:javax.persistence-api'
+    implementation 'org.postgresql:postgresql'
+    implementation "org.axonframework:axon-spring-boot-starter:${axon_version}"
+
+    // Test related
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.awaitility:awaitility:4.0.3'
+    testImplementation 'org.testcontainers:testcontainers:1.14.3'
+    testImplementation 'org.testcontainers:junit-jupiter:1.14.3'
+    testImplementation 'org.testcontainers:postgresql:1.14.3'
+    testImplementation 'org.assertj:assertj-core:3.11.1'
+}
+
+test {
+    useJUnitPlatform()
+}

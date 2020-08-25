@@ -1,0 +1,11 @@
+
+
+subprojects {
+    configurations {
+        all {
+            // We use log4j2 rather than the default 'Logback' logging framework provided by
+            // default in spring boot and so if it is brought in at any point remove it.
+            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+        }
+    }
+}

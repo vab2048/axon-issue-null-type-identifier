@@ -1,3 +1,6 @@
+
+The bug associated with this repo was solved in [Issue 1495](https://github.com/AxonFramework/AxonFramework/issues/1495).
+
 This repo's purpose is to provide an example to illustrate how to recreate a bug
 found in tracking event processors when running integration tests.
 
